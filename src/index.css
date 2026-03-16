@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --color-palette-white: #f6f6f6;
+}
