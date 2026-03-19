@@ -14,23 +14,23 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
   font-family: sans-serif;
   background-color: var(--color-palette-background);
+  margin: 0;
+  padding: 0;
 }
 
-img {
+/* img {
   max-width: 100%;
   height: auto;
   display: block;
-}
+} */
 
 html {
   scroll-behavior: smooth;
-  overflow: hidden;
+  overflow-x: hidden;
 }
