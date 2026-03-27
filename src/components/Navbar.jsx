@@ -60,7 +60,7 @@ function Navbar() {
         onClick={() => setIsOpen((prev) => !prev)}
         whileHover={{ scale: hoverScale }}
         whileTap={{ scale: tapScale }}
-        className="fixed top-4 right-4 z-[60] bg-transparent p-0"
+        className="fixed top-4 right-4 z-60 bg-transparent p-0"
       >
         <span className="flex h-14 w-14 items-center justify-center ">
           <span className="relative block h-5 w-7">
@@ -71,12 +71,12 @@ function Navbar() {
                   : { rotate: 0, y: 0, backgroundColor: "rgba(234,238,251,0.95)" }
               }
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="absolute left-0 top-0 h-[2px] w-7 origin-center rounded-full"
+              className="absolute left-0 top-0 h-0.5 w-7 origin-center rounded-full"
             />
             <motion.span
               animate={isOpen ? { opacity: 0 } : { opacity: 1, backgroundColor: "rgba(234,238,251,0.75)" }}
               transition={{ duration: 0.18, ease: "easeOut" }}
-              className="absolute left-0 top-[9px] h-[2px] w-7 rounded-full"
+              className="absolute left-0 top-2.25 h-0.5 w-7 rounded-full"
             />
             <motion.span
               animate={
@@ -85,7 +85,7 @@ function Navbar() {
                   : { rotate: 0, y: 0, backgroundColor: "rgba(234,238,251,0.95)" }
               }
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="absolute left-0 top-[18px] h-[2px] w-7 origin-center rounded-full"
+              className="absolute left-0 top-4.5 h-0.5 w-7 origin-center rounded-full"
             />
           </span>
         </span>
@@ -131,7 +131,7 @@ function Navbar() {
                     >
                       <span className="inline-flex items-center gap-3">
                         <span>{link.label}</span>
-                        <span className="translate-y-[3px] text-base  text-palette-white/35 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-palette-white/60">
+                        <span className="translate-y-0.75 text-base  text-palette-white/35 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-palette-white/60">
                           ➤
                         </span>
                       </span>
