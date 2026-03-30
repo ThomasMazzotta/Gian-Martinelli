@@ -106,7 +106,7 @@ function Navbar() {
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.20),rgba(255,255,255,0.05)_40%,rgba(255,255,255,0.02))]" />
               <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/12" />
               <div className="pointer-events-none absolute -top-16 left-8 h-32 w-32 rounded-full bg-white/10 blur-3xl" />
-              <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-red-500/10 blur-3xl" />
+              <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-black-500/10 blur-3xl" />
 
               {/* Menu content */}
               <div className="relative z-10 flex h-full flex-col px-7 pt-24 pb-8">

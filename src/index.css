@@ -4,6 +4,9 @@
 @theme {
   --color-palette-white: #eaeefb;
   --color-palette-background: #020000;
+  --color-palette-emph: #a02c62;
+  --color-palette-emph2: #426eaa;
+  --color-palette-gold: #b08a57;
 }
 
 * {
@@ -19,7 +22,7 @@
 
 body {
   font-family: sans-serif;
-  background-color: var(--color-palette-background);
+  background-color: var(--color-palette-white);
   margin: 0;
   padding: 0;
 }
