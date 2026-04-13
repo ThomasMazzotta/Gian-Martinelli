@@ -2,6 +2,8 @@ import "./App.css"
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Projects from "./components/Projects"
+import Gallery from "./components/Gallery"
+import Curriculum from "./components/Curriculum"
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <main>
         <Home />
         <Projects />
+        <Gallery />
+        <Curriculum />
       </main>
     </>
   )

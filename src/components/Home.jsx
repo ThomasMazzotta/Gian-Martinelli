@@ -1,12 +1,48 @@
 import React from "react"
+import { motion } from "framer-motion"
 import mainImage from "../assets/smartphone_images/home_images/main_image_sm.webp"
 import SvgDivider from "./SvgDivider"
+import WordMarquee from "./animations/WordMarquee"
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.2,
+    },
+  },
+}
+
+const wordVariants = {
+  hidden: {
+    opacity: 0,
+    y: 18,
+  },
+  show: (rotate = 0) => ({
+    opacity: 1,
+    y: 0,
+    rotate,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+}
+
+function MotionWord({ children, className = "", rotate = 0 }) {
+  return (
+    <motion.span custom={rotate} variants={wordVariants} className={`inline-block will-change-transform ${className}`}>
+      {children}
+    </motion.span>
+  )
+}
 
 function Home() {
   return (
-    <section className="relative flex h-dvh flex-col  bg-palette-background overflow-x-hidden">
+    <section id="home" className="relative overflow-x-hidden bg-palette-white">
       {/* INSTAGRAM AND EMAIL SVG */}
-      <div className="absolute top-0 left-0 z-10 m-5">
+      <div className="absolute top-0 left-0 z-20 m-5">
         <div className="flex flex-col items-center gap-3">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-12 w-12">
             <path
@@ -39,50 +75,52 @@ function Home() {
         </div>
       </div>
 
-      {/* IMAGE AREA + WAVE*/}
-      <div className="relative">
-        <SvgDivider />
-        <img src={mainImage} className="h-full w-full object-cover object-center" alt="Gian Martinelli" />
+      {/* IMAGE AREA */}
+      <div className="w-full">
+        <div className="relative">
+          <SvgDivider firstSvgPosition="-bottom-px" secondSvgPosition="-bottom-4" />
+          <img src={mainImage} className="w-full object-cover" alt="Gian Martinelli" />
+        </div>
       </div>
 
       {/* TEXT AREA */}
-      <div className="flex justify-center text-center pt-0">
-        <div className="max-w-sm">
-          <p className="text-[1.7rem] font-semibold leading-relaxed text-palette-white sm:text-[1.6rem] [word-spacing:42px] ">
-            <span className="inline-block -rotate-4 text-[2.5rem] font-bold text-palette-white [text-shadow:0_0_10px_rgba(255,255,255,0.32),0_2px_10px_rgba(255,255,255,0.18)]">
-              Gian
-            </span>{" "}
-            <span className="inline-block text-[2.5rem] font-bold text-palette-white rotate-6 [text-shadow:0_0_10px_rgba(255,255,255,0.32),0_2px_10px_rgba(255,255,255,0.18)]">
-              Martinelli
-            </span>
-            <br />
-            <span className="inline-block rotate-8 text-[3rem] text-palette-gold [text-shadow:0_0_10px_rgba(201,160,90,0.32),0_2px_10px_rgba(201,160,90,0.18)]">
-              Trentino
-            </span>{" "}
-            <span className="inline-block -rotate-4 text-[2.5rem] font-bold text-palette-emph [text-shadow:0_0_10px_rgba(190,55,120,0.3),0_2px_10px_rgba(190,55,120,0.18)]">
-              actor
-            </span>
-            <br />
-            <span className="inline-block text-palette-muted text-3xl -rotate-6 [text-shadow:0_0_10px_rgba(255,255,255,0.16),0_2px_8px_rgba(255,255,255,0.1)]">
-              martial
-            </span>{" "}
-            <span className="inline-block text-palette-muted text-4xl [text-shadow:0_0_10px_rgba(255,255,255,0.16),0_2px_8px_rgba(255,255,255,0.1)]">
-              arts
-            </span>
-            <br />
-            <span className="inline-block rotate-3 text-[2.5rem] font-bold text-palette-emph2 [text-shadow:0_0_10px_rgba(70,120,210,0.3),0_2px_10px_rgba(70,120,210,0.18)]">
-              dynamic
-            </span>{" "}
-            <span className="inline-block -rotate-10 text-[2.1rem] font-bold text-palette-gold [text-shadow:0_0_10px_rgba(201,160,90,0.32),0_2px_10px_rgba(201,160,90,0.18)]">
-              deep
-            </span>
-            <br />
-            <span className="inline-block text-palette-emph text-[2.4rem] [text-shadow:0_0_10px_rgba(190,55,120,0.3),0_2px_10px_rgba(190,55,120,0.18)]">
-              authentic
-            </span>
-          </p>
-        </div>
+      <div>
+        <h2 className="pl-3 pt-2 pb-6 text-7xl font-semibold text-palette-background sm:text-8xl">About</h2>
       </div>
+
+      <motion.div
+        className="px-4 pb-10"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.45 }}
+      >
+        <div className="flex-col flex justify-center items-center max-w-[26rem] sm:max-w-[32rem] pt-10">
+          <p className="leading-[0.95] text-palette-background">
+            <MotionWord
+              rotate={-4}
+              className="inline-block text-[clamp(2.2rem,8vw,4rem)] font-semibold tracking-[-0.05em]"
+            >
+              Gian
+            </MotionWord>{" "}
+            <MotionWord
+              rotate={2}
+              className="inline-block text-[clamp(2.6rem,9vw,4.8rem)] font-semibold tracking-[-0.06em]"
+            >
+              Martinelli
+            </MotionWord>
+          </p>
+
+          <motion.p
+            variants={wordVariants}
+            custom={0}
+            className="mt-4 max-w-[20rem] text-[0.95rem] leading-relaxed text-palette-background/75 sm:text-base"
+          >
+            Trentino actor with a vivid presence, a natural rhythm and an authentic screen identity.
+          </motion.p>
+          <WordMarquee></WordMarquee>
+        </div>
+      </motion.div>
     </section>
   )
 }
